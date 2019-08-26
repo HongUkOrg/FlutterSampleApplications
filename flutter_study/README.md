@@ -1,6 +1,6 @@
-# flutter_test02
+# flutter_study
 
-A new Flutter application.
+study for flutter
 
 ## Getting Started
 
