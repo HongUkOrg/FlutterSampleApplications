@@ -9,7 +9,10 @@ class MyApp extends StatelessWidget {
     final wordPair = WordPair.random();
     return MaterialApp(
       title: 'Welcome to ListView',
-        home : RandomWords(),
+      theme: ThemeData(
+          primaryColor: Colors.white,
+        ),
+      home : RandomWords(),
     );
   }
 }
@@ -23,17 +26,59 @@ RandomWordState는 Scaffold를 반환하고있다. ( 하나의 위젯으로 보�
 결국 home에 들어가는 것은 Scaffold가 되고 있다.
  */
 class RandomWordsState extends State<RandomWords> {
-  final words = <WordPair>[];
+  final List<WordPair> words = <WordPair>[];
+  final Set<WordPair> saved = Set<WordPair>();
   final fontSize18 = const TextStyle(fontSize: 18.0);
 
+  void pushSaved() {
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (BuildContext context) {
+          final Iterable<ListTile> tiles = saved.map(
+              (WordPair pair) {
+                return ListTile(
+                  title: Text(
+                    pair.asPascalCase,
+                    style: fontSize18,
+                  ),
+                );
+              }
+          );
+          final List<Widget> divided = ListTile.divideTiles(
+              context: context,
+              tiles: tiles,
+          ).toList();
+          return Scaffold(
+            appBar: AppBar(
+              title: Text("Saved suggestions"),
+            ),
+            body: ListView(children: divided),
+          );
+
+        }
+      )
+
+    );
+  }
+
+  /*
+  AppBar 쪽에 IconButton을 추가해 선택된 리스트들만을 뷰로 뿌려줄 수 있도록 세팅
+  onPressed 쪽으로 fuction 호출을 하고 있음 ( void 형 )
+  opPressed로 호출된 메소드는 다른 페이지로 뷰를 넘겨주는 Navigator 객체를 사용함.
+   */
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('infinite random listView'),
+        actions: <Widget>[
+          IconButton(icon: Icon(Icons.list), onPressed: pushSaved),
+        ],
       ),
       body: randomListview(),
     );
+
+
   }
   /*
   itemBuilder는 리스트뷰 다음 요소들이 필요할 때 호출되어
@@ -66,11 +111,26 @@ class RandomWordsState extends State<RandomWords> {
 
    */
   Widget listViewRow(WordPair pair){
+    final bool alreadySaved = saved.contains(pair);
     return ListTile(
       title: Text(
         pair.asCamelCase,
         style: fontSize18,
       ),
+      trailing: Icon(
+        alreadySaved? Icons.favorite : Icons.favorite_border,
+        color: alreadySaved ? Colors.red : null,
+      ),
+      onTap: () {
+        setState(() {
+          if (alreadySaved) {
+            saved.remove(pair);
+          }
+          else {
+            saved.add(pair);
+          }
+        });
+      },
     );
   }
 }
