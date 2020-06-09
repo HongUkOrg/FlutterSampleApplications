@@ -32,11 +32,11 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
-  String _title = "+";
+  String _title = "hello";
   void _incrementCounter() {
     // let the UI-thread know the value concerned with View changed.
     setState(() {
-      _counter--;
+      _counter++;
       _title += "+";
       if(_title.length > 10) {
         _title = "";
