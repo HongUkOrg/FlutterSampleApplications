@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'screens/bike_main_screen.dart';
+import 'screens/car/car_main_screen.dart';
+import 'screens/train/train_main_screen.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -46,9 +50,9 @@ class MyHomePage extends StatelessWidget {
         ),
         body: TabBarView(
           children: <Widget>[
-            Text('Car'),
-            Text('Train'),
-            Text('Bike'),
+            Car(),
+            Train(),
+            Bike(),
           ],
         )
       ),
