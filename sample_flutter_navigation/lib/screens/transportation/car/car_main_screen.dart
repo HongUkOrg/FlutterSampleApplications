@@ -1,9 +1,9 @@
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:sampleflutternavigation/screens/car/car_sub_screen_01.dart';
-import 'package:sampleflutternavigation/screens/car/car_sub_screen_02.dart';
-import 'package:sampleflutternavigation/screens/car/car_sub_screen_03.dart';
+
+import 'car_sub_screen_01.dart';
+import 'car_sub_screen_02.dart';
+import 'car_sub_screen_03.dart';
 
 class Car extends StatefulWidget {
 

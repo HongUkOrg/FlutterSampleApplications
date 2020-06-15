@@ -1,10 +1,11 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:sampleflutternavigation/screens/train/train_sub_screen_01.dart';
-import 'package:sampleflutternavigation/screens/train/train_sub_screen_02.dart';
-import 'package:sampleflutternavigation/screens/train/train_sub_screen_03.dart';
-import 'package:sampleflutternavigation/screens/train/train_sub_screen_04.dart';
+
+import 'train_sub_screen_01.dart';
+import 'train_sub_screen_02.dart';
+import 'train_sub_screen_03.dart';
+import 'train_sub_screen_04.dart';
 
 class Train extends StatefulWidget {
 
