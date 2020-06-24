@@ -8,9 +8,7 @@
     <list default="true" id="8d7dd62b-63be-4129-9d6f-2931b78cb67c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/example/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/flutter_adbrix_remaster.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/flutter_adbrix_remaster.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flutter_adbrix_remaster.iml" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_adbrix_remaster.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +33,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
@@ -71,22 +70,22 @@
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state x="823" y="317" key="AndroidProcessChooserDialog/0.23.1920.1057@0.23.1920.1057" timestamp="1592936310052" />
-    <state width="1878" height="240" key="GridCell.Tab.0.bottom" timestamp="1592936765794">
+    <state width="1878" height="186" key="GridCell.Tab.0.bottom" timestamp="1593006163771">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
-    <state width="1878" height="240" key="GridCell.Tab.0.bottom/0.23.1920.1057@0.23.1920.1057" timestamp="1592936765794" />
-    <state width="1878" height="240" key="GridCell.Tab.0.center" timestamp="1592936765793">
+    <state width="1878" height="186" key="GridCell.Tab.0.bottom/0.23.1920.1057@0.23.1920.1057" timestamp="1593006163771" />
+    <state width="1878" height="186" key="GridCell.Tab.0.center" timestamp="1593006163770">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
-    <state width="1878" height="240" key="GridCell.Tab.0.center/0.23.1920.1057@0.23.1920.1057" timestamp="1592936765793" />
-    <state width="1878" height="240" key="GridCell.Tab.0.left" timestamp="1592936765793">
+    <state width="1878" height="186" key="GridCell.Tab.0.center/0.23.1920.1057@0.23.1920.1057" timestamp="1593006163770" />
+    <state width="1878" height="186" key="GridCell.Tab.0.left" timestamp="1593006163770">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
-    <state width="1878" height="240" key="GridCell.Tab.0.left/0.23.1920.1057@0.23.1920.1057" timestamp="1592936765793" />
-    <state width="1878" height="240" key="GridCell.Tab.0.right" timestamp="1592936765793">
+    <state width="1878" height="186" key="GridCell.Tab.0.left/0.23.1920.1057@0.23.1920.1057" timestamp="1593006163770" />
+    <state width="1878" height="186" key="GridCell.Tab.0.right" timestamp="1593006163770">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
-    <state width="1878" height="240" key="GridCell.Tab.0.right/0.23.1920.1057@0.23.1920.1057" timestamp="1592936765793" />
+    <state width="1878" height="186" key="GridCell.Tab.0.right/0.23.1920.1057@0.23.1920.1057" timestamp="1593006163770" />
     <state x="461" y="190" key="SettingsEditor" timestamp="1592936439298">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
@@ -95,10 +94,10 @@
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state width="508" height="445" key="SwitcherDM/0.23.1920.1057@0.23.1920.1057" timestamp="1592961896650" />
-    <state x="612" y="384" key="com.intellij.ide.util.TipDialog" timestamp="1592961500715">
+    <state x="612" y="384" key="com.intellij.ide.util.TipDialog" timestamp="1593006302887">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
-    <state x="612" y="384" key="com.intellij.ide.util.TipDialog/0.23.1920.1057@0.23.1920.1057" timestamp="1592961500715" />
+    <state x="612" y="384" key="com.intellij.ide.util.TipDialog/0.23.1920.1057@0.23.1920.1057" timestamp="1593006302887" />
     <state x="604" y="292" width="712" height="518" key="find.popup" timestamp="1592935275921">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
