@@ -14,6 +14,8 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
 
+  final FlutterAdbrixRemaster adbrix = FlutterAdbrixRemaster();
+
   @override
   void initState() {
     initPlatformState();
@@ -26,13 +28,11 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
     String result;
     // Platform messages may fail, so we use a try/catch PlatformException.
     try {
-      result = await FlutterAdbrixRemaster.startAdbrixSDK;
+      result = await adbrix.startAdbrixSDK;
     } on PlatformException {
-      debugPrint('ERROR : failed to initialize Adbrix SDK');
+      debugPrint('ERROR : Failed to initialize Adbrix SDK');
     }
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
+
     if (!mounted) return;
   }
 
@@ -43,79 +43,75 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
         appBar: AppBar(
           title: const Text('Plugin example app'),
         ),
-        body: InkWell(
-            onTap: () {
-              setState(() {
+        body: Stack(
+          children: <Widget>[
+            Center(
+              child: Text('Adbrix Sample',
+                style: TextStyle(fontSize: 60.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.blue[500]),),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: <Widget>[
+                      FlatButton(onPressed: () {
+                        login('honguk');
+                      }, child: Text('Login')),
+                      FlatButton(onPressed: () {
+                        var attr = new AttrModel();
+                        attr.setAttr('honguk', 'hihi');
+                        attr.setAttr(123123, 123123);
+                        attr.setAttr(true, false);
 
-              });
-            },
-            child: Stack(
-              children: <Widget>[
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: <Widget>[
-                        FlatButton(onPressed: () {
-                          login('honguk');
-                        }, child: Text('Login')),
-                        FlatButton(onPressed: () {
-                          var attr = new AttrModel();
-                          attr.setAttr('honguk', 'hihi');
-                          attr.setAttr(123123, 123123);
-                          attr.setAttr(true, false);
+                      }, child: Text('setUserProperty')),
+                      FlatButton(onPressed: () {
 
-                        }, child: Text('setUserProperty')),
-                        FlatButton(onPressed: () {
+                      }, child: Text('setLogLevel')),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: <Widget>[
+                      FlatButton(onPressed: () {
 
-                        }, child: Text('setLogLevel')),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: <Widget>[
-                        FlatButton(onPressed: () {
+                      }, child: Text('purchase')),
+                      FlatButton(onPressed: () {
 
-                        }, child: Text('purchase')),
-                        FlatButton(onPressed: () {
+                      }, child: Text('viewHome')),
+                      FlatButton(onPressed: () {
 
-                        }, child: Text('viewHome')),
-                        FlatButton(onPressed: () {
+                      }, child: Text('setLogLevel')),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: <Widget>[
+                      FlatButton(onPressed: () {
 
-                        }, child: Text('setLogLevel')),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: <Widget>[
-                        FlatButton(onPressed: () {
+                      }, child: Text('Login')),
+                      FlatButton(onPressed: () {
 
-                        }, child: Text('Login')),
-                        FlatButton(onPressed: () {
+                      }, child: Text('setUserProperty')),
+                      FlatButton(onPressed: () {
 
-                        }, child: Text('setUserProperty')),
-                        FlatButton(onPressed: () {
-
-                        }, child: Text('setLogLevel')),
-                      ],
-                    )
-                  ],
-                ),
-                Center(
-                  child: Text('Adbrix Sample',
-                    style: TextStyle(fontSize: 60.0,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.red),),
-                ),
-              ],
-            )
+                      }, child: Text('setLogLevel')),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );
   }
 
   void login(String userId) {
-    FlutterAdbrixRemaster.login(userId);
+    adbrix.login('hello');
   }
 }

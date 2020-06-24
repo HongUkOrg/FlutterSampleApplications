@@ -4,26 +4,29 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 
 class FlutterAdbrixRemaster {
-  static const MethodChannel _channel =
-      const MethodChannel('flutter_adbrix_remaster');
 
-  static Future<String> get platformVersion async {
+  final MethodChannel _channel = const MethodChannel('flutter_adbrix_remaster');
+
+  Future<String> get platformVersion async {
     final String version = await _channel.invokeMethod('getPlatformVersion');
     return version;
   }
-  static Future<String> get startAdbrixSDK async {
+
+  Future<String> get startAdbrixSDK async {
     final String result = await _channel.invokeMethod('startAdbrixSDK');
     return result;
   }
-  static Future<void> get onPause async {
+
+  Future<void> get onPause async {
     await _channel.invokeMethod('onPuase');
     return;
   }
-  static Future<void> get onResume async {
+
+  Future<void> get onResume async {
     await _channel.invokeMethod('onResume');
     return;
   }
-  static Future<void> login(userId) async {
+  Future<void> login(userId) async {
 
     Map<String, dynamic> temp = {};
     dynamic myUserId = userId;
