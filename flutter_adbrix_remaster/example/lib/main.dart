@@ -58,7 +58,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: <Widget>[
                         FlatButton(onPressed: () {
-                          login("honguk");
+                          login('honguk');
                         }, child: Text('Login')),
                         FlatButton(onPressed: () {
                           var attr = new AttrModel();

@@ -24,7 +24,16 @@ class FlutterAdbrixRemaster {
     return;
   }
   static Future<void> login(userId) async {
-    await _channel.invokeMapMethod('login',{"userId":userId});
+
+    Map<String, dynamic> temp = {};
+    dynamic myUserId = userId;
+    assert(myUserId is String);
+    temp['userId'] = myUserId;
+
+    await _channel.invokeMethod('login', temp);
+//    await _channel.invokeMapMethod('login', <String, dynamic> {
+//      'userId': userId
+//    });
     return;
   }
 
