@@ -37,7 +37,7 @@ class WeatherApiClient {
       throw Exception('error getting weather information');
     }
 
-    final weatherJson = jsonDecode(weatherResponse.body) as List;
+    final weatherJson = jsonDecode(weatherResponse.body);
     return WeatherModel.fromJson(weatherJson);
   }
 }

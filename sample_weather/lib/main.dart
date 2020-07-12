@@ -3,15 +3,21 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart';
 import 'package:sampleweather/blocs/weather_bloc.dart';
 import 'package:sampleweather/simple_bloc_delegate.dart';
+import 'package:sampleweather/theme/theme_bloc.dart';
 import 'package:sampleweather/weather/weather_api_client.dart';
 import 'package:sampleweather/weather/weather_repository.dart';
-import 'package:sampleweather/weather/view/weather_view.dart';
+import 'package:sampleweather/weather/view/weather_main_view.dart';
 
 void main() {
   BlocSupervisor.delegate = SimpleBlocDelegate();
 
   WeatherRepository weatherRepository = WeatherRepository(weatherApiClient: WeatherApiClient(httpClient: Client()));
-  runApp(MyApp(weatherRepository: weatherRepository,));
+  runApp(BlocProvider<ThemeBloc>(
+      create: (context) => ThemeBloc(),
+      child: MyApp(
+        weatherRepository: weatherRepository,
+      )
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -22,16 +28,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Sample Weather Application',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: BlocProvider(
-          create: (context) => WeatherBloc(weatherRepository: weatherRepository),
-          child: WeatherView(),
-      )
+    return BlocBuilder<ThemeBloc, ThemeState>(
+      builder: (context, themeState) {
+        return MaterialApp(
+            title: 'Sample Weather Application',
+            theme: themeState.themeData,
+            home: BlocProvider(
+              create: (context) => WeatherBloc(weatherRepository: weatherRepository),
+              child: WeatherMainView(),
+            )
+        );
+      }
     );
   }
 }
