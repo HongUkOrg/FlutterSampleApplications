@@ -1,4 +1,4 @@
-part of 'theme_bloc.dart';
+part of '../theme_bloc.dart';
 
 class ThemeState extends Equatable {
 

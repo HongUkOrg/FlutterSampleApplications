@@ -1,7 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
-import 'package:sampleweather/weather/weather_api_client.dart';
-import 'package:sampleweather/weather/weather_model.dart';
+import 'package:sampleweather/repositories/weather_api_client.dart';
+import 'package:sampleweather/models/models.dart';
 
 class WeatherRepository {
   final WeatherApiClient weatherApiClient;

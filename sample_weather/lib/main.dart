@@ -1,22 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart';
-import 'package:sampleweather/blocs/weather_bloc.dart';
-import 'package:sampleweather/simple_bloc_delegate.dart';
-import 'package:sampleweather/theme/theme_bloc.dart';
-import 'package:sampleweather/weather/weather_api_client.dart';
-import 'package:sampleweather/weather/weather_repository.dart';
-import 'package:sampleweather/weather/view/weather_main_view.dart';
+
+import 'simple_bloc_delegate.dart';
+import 'blocs/blocs.dart';
+import 'repositories/repositories.dart';
+import 'widgets/weather/weather_widgets.dart';
 
 void main() {
   BlocSupervisor.delegate = SimpleBlocDelegate();
 
   WeatherRepository weatherRepository = WeatherRepository(weatherApiClient: WeatherApiClient(httpClient: Client()));
-  runApp(BlocProvider<ThemeBloc>(
-      create: (context) => ThemeBloc(),
-      child: MyApp(
-        weatherRepository: weatherRepository,
+  runApp(MultiBlocProvider(
+    providers: [
+      BlocProvider<ThemeBloc>(
+          create: (context) => ThemeBloc(),
+      ),
+      BlocProvider<SettingsBloc>(
+        create: (context) => SettingsBloc(),
       )
+    ],
+    child: MyApp(
+      weatherRepository: weatherRepository,
+    )
   ));
 }
 

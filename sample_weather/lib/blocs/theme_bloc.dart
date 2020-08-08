@@ -3,10 +3,10 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:sampleweather/weather/weather_model.dart';
+import '../models/models.dart';
 
-part 'theme_event.dart';
-part 'theme_state.dart';
+part 'events/theme_event.dart';
+part 'states/theme_state.dart';
 
 class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
 

@@ -1,11 +1,14 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
-import 'package:sampleweather/weather/weather_model.dart';
-import 'package:sampleweather/weather/weather_repository.dart';
-import 'blocs.dart';
 
+import '../models/models.dart';
+import '../repositories/repositories.dart';
+
+part 'states/weather_state.dart';
+part 'events/weather_event.dart';
 
 class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
 

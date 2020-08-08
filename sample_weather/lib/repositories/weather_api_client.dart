@@ -3,7 +3,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
-import 'package:sampleweather/weather/weather_model.dart';
+import 'package:sampleweather/models/models.dart';
 
 class WeatherApiClient {
 
@@ -33,8 +33,8 @@ class WeatherApiClient {
     final weatherResponse = await httpClient.get(weatherUrl);
 
     if (weatherResponse.statusCode != 200) {
-      print('bleo: Failed to get weather information... statusCoed ${weatherResponse.statusCode}');
-      throw Exception('error getting weather information');
+      print('bleo: Failed to get widgets.weather information... statusCoed ${weatherResponse.statusCode}');
+      throw Exception('error getting widgets.weather information');
     }
 
     final weatherJson = jsonDecode(weatherResponse.body);

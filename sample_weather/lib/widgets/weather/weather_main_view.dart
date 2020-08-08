@@ -4,14 +4,9 @@ import 'dart:ffi';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sampleweather/blocs/blocs.dart';
-import 'package:sampleweather/blocs/weather_bloc.dart';
-import 'package:sampleweather/theme/theme_bloc.dart';
-import 'package:sampleweather/weather/view/gradient_container.dart';
-import 'package:sampleweather/weather/view/weather_city_selection.dart';
-import 'package:sampleweather/weather/view/weather_combined_temperature.dart';
-import 'package:sampleweather/weather/view/weather_last_updated.dart';
-import 'package:sampleweather/weather/view/weather_location.dart';
+import '../../blocs/blocs.dart';
+import '../settings/settings_view.dart';
+import 'weather_widgets.dart';
 
 class WeatherMainView extends StatefulWidget {
   @override
@@ -33,7 +28,7 @@ class _WeatherMainViewState extends State<WeatherMainView> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-            'Today\'s weather',
+            'Today\'s widgets.weather',
           style: TextStyle(
             fontStyle: FontStyle.italic,
             fontSize: 12,
@@ -41,6 +36,17 @@ class _WeatherMainViewState extends State<WeatherMainView> {
           ),
         ),
         actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.settings),
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => SettingsView(),
+                  )
+              );
+            },
+          ),
           Padding(
             padding: const EdgeInsets.only(right: 12.0),
             child: IconButton(
